@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LVDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LVDatabaseModelStoreContainer">
+          <EntitySet Name="BANGTHANHTICH" EntityType="LVDatabaseModel.Store.BANGTHANHTICH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BBXH_ONLINE" EntityType="LVDatabaseModel.Store.BBXH_ONLINE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HINHANH" EntityType="LVDatabaseModel.Store.HINHANH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MUCDO" EntityType="LVDatabaseModel.Store.MUCDO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NGUOICHOI" EntityType="LVDatabaseModel.Store.NGUOICHOI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PHONGCHOI" EntityType="LVDatabaseModel.Store.PHONGCHOI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TROCHUYEN" EntityType="LVDatabaseModel.Store.TROCHUYEN" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BANGTHAN_CO_THANH__NGUOICHO" Association="LVDatabaseModel.Store.FK_BANGTHAN_CO_THANH__NGUOICHO">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOI" />
+            <End Role="BANGTHANHTICH" EntitySet="BANGTHANHTICH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGTHAN_THAM_GIA_MUCDO" Association="LVDatabaseModel.Store.FK_BANGTHAN_THAM_GIA_MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDO" />
+            <End Role="BANGTHANHTICH" EntitySet="BANGTHANHTICH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONGCHO_CHON_HINH_HINHANH" Association="LVDatabaseModel.Store.FK_PHONGCHO_CHON_HINH_HINHANH">
+            <End Role="HINHANH" EntitySet="HINHANH" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONGCHO_CHON_MUC__MUCDO" Association="LVDatabaseModel.Store.FK_PHONGCHO_CHON_MUC__MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDO" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TROCHUYE_RELATIONS_NGUOICHO" Association="LVDatabaseModel.Store.FK_TROCHUYE_RELATIONS_NGUOICHO">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOI" />
+            <End Role="TROCHUYEN" EntitySet="TROCHUYEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TROCHUYE_RELATIONS_PHONGCHO" Association="LVDatabaseModel.Store.FK_TROCHUYE_RELATIONS_PHONGCHO">
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOI" />
+            <End Role="TROCHUYEN" EntitySet="TROCHUYEN" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BANGTHANHTICH">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="IDMUCDO" Type="int" Nullable="false" />
+          <Property Name="SOBUOC" Type="int" />
+          <Property Name="THOIGIAN" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BBXH_ONLINE">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="IDMUCDO" Type="int" Nullable="false" />
+          <Property Name="SOBUOC" Type="int" Nullable="false" />
+          <Property Name="THOIGIAN" Type="char" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HINHANH">
+          <Key>
+            <PropertyRef Name="TENHINH" />
+          </Key>
+          <Property Name="TENHINH" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MUCDO">
+          <Key>
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="IDMUCDO" Type="int" Nullable="false" />
+          <Property Name="MUCDO" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="NGUOICHOI">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="MATKHAU" Type="char" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="PHONGCHOI">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="IDMUCDO" Type="int" Nullable="false" />
+          <Property Name="TENHINH" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="TENPHONG" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MATKHAUPHONG" Type="char" MaxLength="32" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="CHUPHONG" Type="char" MaxLength="50" />
+          <Property Name="TINHTRANG" Type="int" Nullable="false" />
+          <Property Name="NGUOITHANG" Type="char" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TROCHUYEN">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="TAIKHOAN" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="STT" Type="int" Nullable="false" />
+          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_BANGTHAN_CO_THANH__NGUOICHO">
+          <End Role="NGUOICHOI" Type="LVDatabaseModel.Store.NGUOICHOI" Multiplicity="1" />
+          <End Role="BANGTHANHTICH" Type="LVDatabaseModel.Store.BANGTHANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="BANGTHANHTICH">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGTHAN_THAM_GIA_MUCDO">
+          <End Role="MUCDO" Type="LVDatabaseModel.Store.MUCDO" Multiplicity="1" />
+          <End Role="BANGTHANHTICH" Type="LVDatabaseModel.Store.BANGTHANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="IDMUCDO" />
+            </Principal>
+            <Dependent Role="BANGTHANHTICH">
+              <PropertyRef Name="IDMUCDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONGCHO_CHON_HINH_HINHANH">
+          <End Role="HINHANH" Type="LVDatabaseModel.Store.HINHANH" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.Store.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANH">
+              <PropertyRef Name="TENHINH" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="TENHINH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONGCHO_CHON_MUC__MUCDO">
+          <End Role="MUCDO" Type="LVDatabaseModel.Store.MUCDO" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.Store.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="IDMUCDO" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="IDMUCDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TROCHUYE_RELATIONS_NGUOICHO">
+          <End Role="NGUOICHOI" Type="LVDatabaseModel.Store.NGUOICHOI" Multiplicity="1" />
+          <End Role="TROCHUYEN" Type="LVDatabaseModel.Store.TROCHUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="TROCHUYEN">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TROCHUYE_RELATIONS_PHONGCHO">
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.Store.PHONGCHOI" Multiplicity="1" />
+          <End Role="TROCHUYEN" Type="LVDatabaseModel.Store.TROCHUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGCHOI">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TROCHUYEN">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LVDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LVDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BANGTHANHTICHes" EntityType="LVDatabaseModel.BANGTHANHTICH" />
+          <EntitySet Name="BBXH_ONLINE" EntityType="LVDatabaseModel.BBXH_ONLINE" />
+          <EntitySet Name="HINHANHs" EntityType="LVDatabaseModel.HINHANH" />
+          <EntitySet Name="MUCDOes" EntityType="LVDatabaseModel.MUCDO" />
+          <EntitySet Name="NGUOICHOIs" EntityType="LVDatabaseModel.NGUOICHOI" />
+          <EntitySet Name="PHONGCHOIs" EntityType="LVDatabaseModel.PHONGCHOI" />
+          <EntitySet Name="TROCHUYENs" EntityType="LVDatabaseModel.TROCHUYEN" />
+          <AssociationSet Name="FK_BANGTHAN_CO_THANH__NGUOICHO" Association="LVDatabaseModel.FK_BANGTHAN_CO_THANH__NGUOICHO">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOIs" />
+            <End Role="BANGTHANHTICH" EntitySet="BANGTHANHTICHes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGTHAN_THAM_GIA_MUCDO" Association="LVDatabaseModel.FK_BANGTHAN_THAM_GIA_MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDOes" />
+            <End Role="BANGTHANHTICH" EntitySet="BANGTHANHTICHes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONGCHO_CHON_HINH_HINHANH" Association="LVDatabaseModel.FK_PHONGCHO_CHON_HINH_HINHANH">
+            <End Role="HINHANH" EntitySet="HINHANHs" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONGCHO_CHON_MUC__MUCDO" Association="LVDatabaseModel.FK_PHONGCHO_CHON_MUC__MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDOes" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TROCHUYE_RELATIONS_NGUOICHO" Association="LVDatabaseModel.FK_TROCHUYE_RELATIONS_NGUOICHO">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOIs" />
+            <End Role="TROCHUYEN" EntitySet="TROCHUYENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TROCHUYE_RELATIONS_PHONGCHO" Association="LVDatabaseModel.FK_TROCHUYE_RELATIONS_PHONGCHO">
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOIs" />
+            <End Role="TROCHUYEN" EntitySet="TROCHUYENs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BANGTHANHTICH">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="IDMUCDO" Type="Int32" Nullable="false" />
+          <Property Name="SOBUOC" Type="Int32" />
+          <Property Name="THOIGIAN" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="NGUOICHOI" Relationship="LVDatabaseModel.FK_BANGTHAN_CO_THANH__NGUOICHO" FromRole="BANGTHANHTICH" ToRole="NGUOICHOI" />
+          <NavigationProperty Name="MUCDO" Relationship="LVDatabaseModel.FK_BANGTHAN_THAM_GIA_MUCDO" FromRole="BANGTHANHTICH" ToRole="MUCDO" />
+        </EntityType>
+        <EntityType Name="BBXH_ONLINE">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="IDMUCDO" Type="Int32" Nullable="false" />
+          <Property Name="SOBUOC" Type="Int32" Nullable="false" />
+          <Property Name="THOIGIAN" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="HINHANH">
+          <Key>
+            <PropertyRef Name="TENHINH" />
+          </Key>
+          <Property Name="TENHINH" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PHONGCHOIs" Relationship="LVDatabaseModel.FK_PHONGCHO_CHON_HINH_HINHANH" FromRole="HINHANH" ToRole="PHONGCHOI" />
+        </EntityType>
+        <EntityType Name="MUCDO">
+          <Key>
+            <PropertyRef Name="IDMUCDO" />
+          </Key>
+          <Property Name="IDMUCDO" Type="Int32" Nullable="false" />
+          <Property Name="MUCDO1" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BANGTHANHTICHes" Relationship="LVDatabaseModel.FK_BANGTHAN_THAM_GIA_MUCDO" FromRole="MUCDO" ToRole="BANGTHANHTICH" />
+          <NavigationProperty Name="PHONGCHOIs" Relationship="LVDatabaseModel.FK_PHONGCHO_CHON_MUC__MUCDO" FromRole="MUCDO" ToRole="PHONGCHOI" />
+        </EntityType>
+        <EntityType Name="NGUOICHOI">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="MATKHAU" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="BANGTHANHTICHes" Relationship="LVDatabaseModel.FK_BANGTHAN_CO_THANH__NGUOICHO" FromRole="NGUOICHOI" ToRole="BANGTHANHTICH" />
+          <NavigationProperty Name="TROCHUYENs" Relationship="LVDatabaseModel.FK_TROCHUYE_RELATIONS_NGUOICHO" FromRole="NGUOICHOI" ToRole="TROCHUYEN" />
+        </EntityType>
+        <EntityType Name="PHONGCHOI">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" />
+          <Property Name="IDMUCDO" Type="Int32" Nullable="false" />
+          <Property Name="TENHINH" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TENPHONG" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="MATKHAUPHONG" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="CHUPHONG" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="TINHTRANG" Type="Int32" Nullable="false" />
+          <Property Name="NGUOITHANG" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="HINHANH" Relationship="LVDatabaseModel.FK_PHONGCHO_CHON_HINH_HINHANH" FromRole="PHONGCHOI" ToRole="HINHANH" />
+          <NavigationProperty Name="MUCDO" Relationship="LVDatabaseModel.FK_PHONGCHO_CHON_MUC__MUCDO" FromRole="PHONGCHOI" ToRole="MUCDO" />
+          <NavigationProperty Name="TROCHUYENs" Relationship="LVDatabaseModel.FK_TROCHUYE_RELATIONS_PHONGCHO" FromRole="PHONGCHOI" ToRole="TROCHUYEN" />
+        </EntityType>
+        <EntityType Name="TROCHUYEN">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" />
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="STT" Type="Int32" Nullable="false" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="NGUOICHOI" Relationship="LVDatabaseModel.FK_TROCHUYE_RELATIONS_NGUOICHO" FromRole="TROCHUYEN" ToRole="NGUOICHOI" />
+          <NavigationProperty Name="PHONGCHOI" Relationship="LVDatabaseModel.FK_TROCHUYE_RELATIONS_PHONGCHO" FromRole="TROCHUYEN" ToRole="PHONGCHOI" />
+        </EntityType>
+        <Association Name="FK_BANGTHAN_CO_THANH__NGUOICHO">
+          <End Role="NGUOICHOI" Type="LVDatabaseModel.NGUOICHOI" Multiplicity="1" />
+          <End Role="BANGTHANHTICH" Type="LVDatabaseModel.BANGTHANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="BANGTHANHTICH">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGTHAN_THAM_GIA_MUCDO">
+          <End Role="MUCDO" Type="LVDatabaseModel.MUCDO" Multiplicity="1" />
+          <End Role="BANGTHANHTICH" Type="LVDatabaseModel.BANGTHANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="IDMUCDO" />
+            </Principal>
+            <Dependent Role="BANGTHANHTICH">
+              <PropertyRef Name="IDMUCDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONGCHO_CHON_HINH_HINHANH">
+          <End Role="HINHANH" Type="LVDatabaseModel.HINHANH" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANH">
+              <PropertyRef Name="TENHINH" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="TENHINH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONGCHO_CHON_MUC__MUCDO">
+          <End Role="MUCDO" Type="LVDatabaseModel.MUCDO" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="IDMUCDO" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="IDMUCDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TROCHUYE_RELATIONS_NGUOICHO">
+          <End Role="NGUOICHOI" Type="LVDatabaseModel.NGUOICHOI" Multiplicity="1" />
+          <End Role="TROCHUYEN" Type="LVDatabaseModel.TROCHUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="TROCHUYEN">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TROCHUYE_RELATIONS_PHONGCHO">
+          <End Role="PHONGCHOI" Type="LVDatabaseModel.PHONGCHOI" Multiplicity="1" />
+          <End Role="TROCHUYEN" Type="LVDatabaseModel.TROCHUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGCHOI">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="TROCHUYEN">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LVDatabaseModelStoreContainer" CdmEntityContainer="LVDatabaseEntities">
+          <EntitySetMapping Name="BANGTHANHTICHes"><EntityTypeMapping TypeName="LVDatabaseModel.BANGTHANHTICH"><MappingFragment StoreEntitySet="BANGTHANHTICH">
+            <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+            <ScalarProperty Name="IDMUCDO" ColumnName="IDMUCDO" />
+            <ScalarProperty Name="SOBUOC" ColumnName="SOBUOC" />
+            <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BBXH_ONLINE"><EntityTypeMapping TypeName="LVDatabaseModel.BBXH_ONLINE"><MappingFragment StoreEntitySet="BBXH_ONLINE">
+            <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+            <ScalarProperty Name="IDMUCDO" ColumnName="IDMUCDO" />
+            <ScalarProperty Name="SOBUOC" ColumnName="SOBUOC" />
+            <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HINHANHs"><EntityTypeMapping TypeName="LVDatabaseModel.HINHANH"><MappingFragment StoreEntitySet="HINHANH">
+            <ScalarProperty Name="TENHINH" ColumnName="TENHINH" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MUCDOes"><EntityTypeMapping TypeName="LVDatabaseModel.MUCDO"><MappingFragment StoreEntitySet="MUCDO">
+            <ScalarProperty Name="IDMUCDO" ColumnName="IDMUCDO" />
+            <ScalarProperty Name="MUCDO1" ColumnName="MUCDO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="NGUOICHOIs"><EntityTypeMapping TypeName="LVDatabaseModel.NGUOICHOI"><MappingFragment StoreEntitySet="NGUOICHOI">
+            <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+            <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PHONGCHOIs"><EntityTypeMapping TypeName="LVDatabaseModel.PHONGCHOI"><MappingFragment StoreEntitySet="PHONGCHOI">
+            <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+            <ScalarProperty Name="IDMUCDO" ColumnName="IDMUCDO" />
+            <ScalarProperty Name="TENHINH" ColumnName="TENHINH" />
+            <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
+            <ScalarProperty Name="MATKHAUPHONG" ColumnName="MATKHAUPHONG" />
+            <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+            <ScalarProperty Name="CHUPHONG" ColumnName="CHUPHONG" />
+            <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+            <ScalarProperty Name="NGUOITHANG" ColumnName="NGUOITHANG" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TROCHUYENs"><EntityTypeMapping TypeName="LVDatabaseModel.TROCHUYEN"><MappingFragment StoreEntitySet="TROCHUYEN">
+            <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+            <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+            <ScalarProperty Name="STT" ColumnName="STT" />
+            <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LVDatabase">
+        <EntityTypeShape EntityType="LVDatabaseModel.BANGTHANHTICH" Width="1.5" PointX="3" PointY="3.625" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.BBXH_ONLINE" Width="1.5" PointX="0.75" PointY="6.375" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.HINHANH" Width="1.5" PointX="3.75" PointY="0.875" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.MUCDO" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5923063151041657" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.NGUOICHOI" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5923063151041657" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.PHONGCHOI" Width="1.5" PointX="6" PointY="3.125" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVDatabaseModel.TROCHUYEN" Width="1.5" PointX="8.25" PointY="3.625" Height="1.9210009765624996" IsExpanded="true" />
+        <AssociationConnector Association="LVDatabaseModel.FK_BANGTHAN_CO_THANH__NGUOICHO" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2717089843749996" />
+          <ConnectorPoint PointX="3.34375" PointY="2.2717089843749996" />
+          <ConnectorPoint PointX="3.34375" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="LVDatabaseModel.FK_BANGTHAN_THAM_GIA_MUCDO" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.5461531575520828" />
+          <ConnectorPoint PointX="3" PointY="4.5461531575520828" />
+        </AssociationConnector>
+        <AssociationConnector Association="LVDatabaseModel.FK_PHONGCHO_CHON_HINH_HINHANH" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="2.1386116536458335" />
+          <ConnectorPoint PointX="4.90625" PointY="3.34375" />
+          <ConnectorPoint PointX="6" PointY="3.34375" />
+        </AssociationConnector>
+        <AssociationConnector Association="LVDatabaseModel.FK_PHONGCHO_CHON_MUC__MUCDO" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="5.3423063151041656" />
+          <ConnectorPoint PointX="1.5" PointY="5.82029296875" />
+          <ConnectorPoint PointX="6" PointY="5.82029296875" />
+        </AssociationConnector>
+        <AssociationConnector Association="LVDatabaseModel.FK_TROCHUYE_RELATIONS_NGUOICHO" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.3029614843750004" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="2.302961484375" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="2.3029614843750004" />
+          <ConnectorPoint PointX="9" PointY="2.3029614843750004" />
+          <ConnectorPoint PointX="9" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="LVDatabaseModel.FK_TROCHUYE_RELATIONS_PHONGCHO" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="4.58550048828125" />
+          <ConnectorPoint PointX="8.25" PointY="4.58550048828125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

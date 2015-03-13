@@ -1,0 +1,18 @@
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\bin\Debug\LVService1.dll.config
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\bin\Debug\LVService1.dll
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\bin\Debug\LVService1.pdb
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\obj\Debug\LVService1.dll
+D:\Dropbox\Luan Van\Code\Server2_WinForm\LVService\LVService1\obj\Debug\LVService1.pdb
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.dll.config
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.dll
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.pdb
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.csprojResolveAssemblyReference.cache
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.dll
+W:\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.pdb
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.dll.config
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.dll
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\bin\Debug\LVService1.pdb
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.dll
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.pdb
+E:\Disk M\DISK_LuanVan\WindowsPhone_XepHinh\SourceCode\Server\LVService1\obj\Debug\LVService1.csprojResolveAssemblyReference.cache
