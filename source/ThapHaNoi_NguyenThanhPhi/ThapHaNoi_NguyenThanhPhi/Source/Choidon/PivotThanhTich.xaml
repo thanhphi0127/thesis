@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ThapHaNoi_NguyenThanhPhi.Source.Choidon.PivotThanhTich"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" Loaded="AutoLoadThanhTichCaNhan"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Border BorderBrush="Black" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="480" Grid.RowSpan="1">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/Assets/Background/Xephangcanhan.jpg"/>
+            </Border.Background>
+        </Border>
+        <!--Pivot Control-->
+        <phone:Pivot Title="Vini-Copper">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="3 Cọc" Margin="12,27,12,0">
+                <Grid Margin="0,-24,0,0">
+                    <Canvas x:Name="canvasThanhtich3">
+                        <Image Height="101" Width="106" Source="/Assets/Icon/33.png" Canvas.Left="22"/>
+                        <TextBlock Canvas.Left="128" TextWrapping="Wrap" FontSize="25" Text="THÀNH TÍCH CÁ NHÂN" Canvas.Top="33"/>
+                        <Image Tap="imgDeleteThanhTich3" Source="/Assets/Icon/delete.png" Height="50" Canvas.Left="170" Canvas.Top="600" Width="50"/>
+                        <TextBlock Canvas.Left="237" TextWrapping="Wrap" Text="Xóa" Canvas.Top="610"/>
+
+                        <ScrollViewer HorizontalAlignment="Left" Height="475" VerticalAlignment="Top" Width="446" Canvas.Left="10" Canvas.Top="106">
+                            <Canvas x:Name="canvasRank3" Height="516" Width="457" Canvas.Left="41" Canvas.Top="181">
+                            </Canvas>
+                        </ScrollViewer>
+                    </Canvas>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="4 Cọc">
+                <Grid Margin="0,-24,0,0">
+                    <Canvas x:Name="canvasThanhtich4">
+                        <Image Height="100" Width="117" Source="/Assets/Icon/44.png" Canvas.Left="13"/>
+                        <TextBlock Canvas.Left="130" TextWrapping="Wrap" FontSize="25" Text="THÀNH TÍCH CÁ NHÂN" Canvas.Top="28"/>
+                        <Image Tap="imgDeleteThanhTich4" Source="/Assets/Icon/delete.png" Height="50" Canvas.Left="174" Canvas.Top="599" Width="50"/>
+                        <TextBlock Canvas.Left="237" TextWrapping="Wrap" Text="Xóa" Canvas.Top="610"/>
+
+                        <ScrollViewer HorizontalAlignment="Left" Height="476" VerticalAlignment="Top" Width="446" Canvas.Left="10" Canvas.Top="105">
+                            <Canvas x:Name="canvasRank4" Height="516" Width="457" Canvas.Left="41" Canvas.Top="181">
+                            </Canvas>
+                        </ScrollViewer>
+                    </Canvas>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

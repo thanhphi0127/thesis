@@ -1,0 +1,5 @@
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\WcfServiceDemo\WcfServiceDemo\bin\WcfServiceDemo.dll
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\WcfServiceDemo\WcfServiceDemo\bin\WcfServiceDemo.pdb
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\WcfServiceDemo\WcfServiceDemo\obj\Debug\WcfServiceDemo.csprojResolveAssemblyReference.cache
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\WcfServiceDemo\WcfServiceDemo\obj\Debug\WcfServiceDemo.dll
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\WcfServiceDemo\WcfServiceDemo\obj\Debug\WcfServiceDemo.pdb

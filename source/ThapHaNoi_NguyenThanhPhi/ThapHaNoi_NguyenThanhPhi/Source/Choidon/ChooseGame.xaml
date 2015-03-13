@@ -1,0 +1,99 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ThapHaNoi_NguyenThanhPhi.Source.Choidon.ChooseGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:eim="clr-namespace:Microsoft.Expression.Interactivity.Media;assembly=Microsoft.Expression.Interactions" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape" BackKeyPress="BackKeyPress"
+    mc:Ignorable="d" Loaded="LoadEvent"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="StoryboardChoose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="img4Coc">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:1:0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="img3Coc">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:1:0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="img4Coc">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:1:0" Value="12000"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="img3Coc">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:1:0" Value="12000"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="591"/>
+
+        </Grid.RowDefinitions>
+
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Background="Transparent" Margin="0,0,0,-20">
+            <Image Source="/Assets/Background/choosegame.jpg" Margin="0,-95,-13,36" HorizontalAlignment="Center"></Image>
+            <Button x:Name="btnChoidon3" Content="Chơi đơn 3 Cọc" Tap="btnChoidon3coc" HorizontalAlignment="Left" Margin="191,280,0,0" VerticalAlignment="Top" Foreground="#FF2742BF"/>
+            <Button x:Name="btnChoidon4" Content="Chơi đơn 4 Cọc" Tap="btnChoidon4coc" HorizontalAlignment="Left" Margin="465,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.939,0.565" Foreground="#FFEE3030"/>
+
+            <Image x:Name="img4Coc" Source="/Assets/Icon/44.png" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Height="171" Margin="484,104,0,0" VerticalAlignment="Top" Width="189">
+                <Image.Projection>
+                    <PlaneProjection/>
+                </Image.Projection>
+                <Image.RenderTransform>
+                    <CompositeTransform/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="img3Coc" Source="/Assets/Icon/33.png" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Height="191" Margin="208,104,0,0" VerticalAlignment="Top" Width="172">
+                <Image.Projection>
+                    <PlaneProjection/>
+                </Image.Projection>
+                <Image.RenderTransform>
+                    <CompositeTransform/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Tap="imgTrangchu" Source="/Assets/Icon/trangchu.png" HorizontalAlignment="Left" Height="72" Margin="19,391,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.48,0.54"/>
+            <TextBlock HorizontalAlignment="Left" Margin="100,414,0,0" TextWrapping="Wrap" Text="Trang chủ" VerticalAlignment="Top" Width="93" Foreground="#FF0A0A0A" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="282,44,0,0" TextWrapping="Wrap" Text="CHỌN SỐ CỌC" VerticalAlignment="Top" Height="60" Width="334" FontSize="48" Foreground="#FF0D5F14"/>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

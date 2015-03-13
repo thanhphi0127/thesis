@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ThapHaNoi_NguyenThanhPhi.Source.Choidon.ThanhTichCaNhanControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}" Width="449" Height="46" Padding="0">
+
+    <Grid Height="50" VerticalAlignment="Top" Margin="0,0,-1,-27" HorizontalAlignment="Left" Width="450">
+        <Border x:Name="brdBackGround" BorderThickness="0" IsHitTestVisible="False">
+            <Border.Background>
+                <SolidColorBrush Color="#FFB3CD8E" Opacity="0.4"/>
+            </Border.Background>
+        </Border>
+        
+        <TextBlock x:Name="txtTennguoichoi" FontSize="18" HorizontalAlignment="Left" Margin="5,12,0,0" TextWrapping="Wrap" Text="Thanh Phi" VerticalAlignment="Top" Width="108" IsHitTestVisible="False"/>
+        <TextBlock x:Name="txtSodia" FontSize="18" HorizontalAlignment="Left" Margin="108,12,0,-3" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="76" Height="26" TextAlignment="Center" IsHitTestVisible="False"/>
+        <TextBlock x:Name="txtSobuoc" FontSize="18" HorizontalAlignment="Left" Margin="175,12,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="90" TextAlignment="Center" IsHitTestVisible="False"/>
+        <TextBlock x:Name="txtThoigian" FontSize="17" HorizontalAlignment="Left" Margin="266,12,0,10" TextWrapping="Wrap" Text="--:--:--" Width="71" TextAlignment="Center" IsHitTestVisible="False"/>
+        <TextBlock x:Name="txtNgaylap" FontSize="17" Margin="342,11,0,0" TextWrapping="Wrap" Text="dd/mm/yyyy" VerticalAlignment="Top" Height="29" TextAlignment="Center" IsHitTestVisible="False" HorizontalAlignment="Left" Width="100"/>
+    </Grid>
+</UserControl>
