@@ -1,7 +1,0 @@
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\bin\WebServiceForTesting.dll
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\bin\WebServiceForTesting.pdb
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\obj\Debug\WebServiceForTesting.dll
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\obj\Debug\WebServiceForTesting.pdb
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\bin\EntityFramework.dll
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\bin\EntityFramework.xml
-E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ConnectToLocalWebService\WebServiceForTesting\obj\Debug\WebServiceForTesting.csprojResolveAssemblyReference.cache
