@@ -16,16 +16,45 @@
     shell:SystemTray.IsVisible="False">
     
     <phone:PhoneApplicationPage.Resources>
-        <Storyboard x:Name="StoryboardChoose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="imgTower">
-            <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
-            <SplineDoubleKeyFrame KeyTime="0:2:0" Value="0"/>
-        </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="imgTower">
-            <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
-            <SplineDoubleKeyFrame KeyTime="0:2:0" Value="12000"/>
-        </DoubleAnimationUsingKeyFrames>
-    </Storyboard>
+        <Storyboard x:Name="Affect_Move">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-526"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-10"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-4"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image1">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-454"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-413"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="8"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image1">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image2">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-424"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-422"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-4.001"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image2">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-14"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-4"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image3">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-390"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-404.91"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image3">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-2"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="5.318"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
@@ -56,11 +85,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="74"/>
             <RowDefinition/>
+            <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         
         <Border BorderBrush="Black" HorizontalAlignment="Left" Height="800" VerticalAlignment="Top" Width="488" Grid.RowSpan="2" Margin="14,0,-4,0">
             <Border.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/Background/main.jpg"/>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/Background/brown.jpg"/>
             </Border.Background>
         </Border>
         
@@ -69,35 +99,51 @@
         <!--TitlePanel contains the name of the application and page title-->
         <!--ContentPanel - place additional content here-->
 
-        <Border x:Name="brdSound" BorderThickness="0,1,0,0" HorizontalAlignment="Left" Height="64" Margin="430,6,0,0" VerticalAlignment="Top" Width="64" Tap="btnSound_Tap">
+        <Border x:Name="brdSound" BorderThickness="0,1,0,0" HorizontalAlignment="Left" Height="58" Margin="430,6,0,0" VerticalAlignment="Top" Width="64" Tap="btnSound_Tap">
             <Border.Background>
-                <ImageBrush Stretch="None" ImageSource="Assets/Icon/Volume-Normal.png"/>
+                <ImageBrush Stretch="None" ImageSource="Assets/Icon/Volume-main.png"/>
             </Border.Background>
         </Border>
         
-        
-        
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="88,190,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="400"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="122,322,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="366"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="92,562,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="400"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="112,443,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="376"/>
+        <!--
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="112,198,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="376"/>
 
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="112,322,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="376"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="112,562,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="82" Margin="112,443,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="376"/>
+-->
         
-        <Image Source="/Assets/Icon/Thongtin.png" HorizontalAlignment="Left" Height="82" Margin="34,560,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95" Tap="imgGioithieu"/>
-        <Image Source="/Assets/Icon/thachdau.png" HorizontalAlignment="Left" Height="82" Margin="28,190,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95"/>
-        <Image Source="/Assets/Icon/choidon.ico" HorizontalAlignment="Left" Height="83" Margin="74,321,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95"/>
-        <Image Source="/Assets/Icon/top.png"  HorizontalAlignment="Left" Height="96" Margin="74,429,0,0" Grid.Row="1" VerticalAlignment="Top" Width="81"/>
+        <Image Source="/Assets/Icon/book.png" HorizontalAlignment="Left" Height="95" Margin="33,556,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Tap="imgGioithieu"/>
+        <Image Source="/Assets/Icon/global.png" HorizontalAlignment="Left" Height="73" Margin="33,207,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90"/>
+        <Image Source="/Assets/Icon/game.png" HorizontalAlignment="Left" Height="82" Margin="33,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="79"/>
+        <Image Source="/Assets/Icon/top.png"  HorizontalAlignment="Left" Height="89" Margin="33,443,0,0" Grid.Row="1" VerticalAlignment="Top" Width="81"/>
         <Image x:Name="imgTower" Source="/Assets/Logo/main.png" HorizontalAlignment="Left" Height="174" Margin="53,72,0,0" VerticalAlignment="Top" Width="413" Grid.RowSpan="2"/>
-        <Image Source="/Assets/Logo/thachdautructuyen.png" HorizontalAlignment="Left" Tap="Tap_Online" Height="51" Margin="112,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="376"/>
-        <Image Source="/Assets/Logo/choidon.png" Tap="btn_Start_Tap"  HorizontalAlignment="Left" Height="49" Margin="157,336,0,0" Grid.Row="1" VerticalAlignment="Top" Width="335"/>
-        <Image Source="/Assets/Logo/thanhtich.png" Tap="btnThanhtich" HorizontalAlignment="Left" Height="60" Margin="165,455,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300"/>
-        <Image Source="/Assets/Logo/huongdan.png" Tap="imgGioithieu" HorizontalAlignment="Left" Height="55" Margin="128,570,0,0" Grid.Row="1" VerticalAlignment="Top" Width="337"/>
+        <Image x:Name="image" Source="/Assets/Logo/thachdau.png" HorizontalAlignment="Left" Tap="Tap_Online" Height="56" Margin="157,212,0,0" Grid.Row="1" VerticalAlignment="Top" Width="260" RenderTransformOrigin="0.5,0.5">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
+        <Image x:Name="image1" Source="/Assets/Logo/choidon.png" Tap="btn_Start_Tap"  HorizontalAlignment="Left" Height="51" Margin="157,339,0,0" Grid.Row="1" VerticalAlignment="Top" Width="324" RenderTransformOrigin="0.5,0.5">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
+        <Image x:Name="image2" Source="/Assets/Logo/thanhtich.png" Tap="btnThanhtich" HorizontalAlignment="Left" Height="50" Margin="157,459,0,0" Grid.Row="1" VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.5,0.5">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
+        <Image x:Name="image3" Source="/Assets/Logo/huongdan.png" Tap="imgGioithieu" HorizontalAlignment="Left" Height="65" Margin="161,571,-1,0" Grid.Row="1" VerticalAlignment="Top" Width="338" RenderTransformOrigin="0.5,0.5">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
         <Image Source="/Assets/Icon/caidat.png" Tap="imgSeting" HorizontalAlignment="Left" Height="54" Margin="430,672,0,0" Grid.Row="1" VerticalAlignment="Top" Width="58"/>
         <TextBlock HorizontalAlignment="Left" Margin="364,686,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Cài đặt" VerticalAlignment="Top"/>
-
-
-
-
+        
+        <Canvas x:Name="test">
+            
+        </Canvas>
     </Grid>
 
 </phone:PhoneApplicationPage>

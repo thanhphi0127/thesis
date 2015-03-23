@@ -61,19 +61,18 @@
         </Border>
 
         <Canvas>
-            <Image Height="92" Canvas.Left="57" Canvas.Top="77" Width="86" Source="/Assets/Icon/icon-list.png" RenderTransformOrigin="0.52,0.503"/>
-            <Image Height="75" Canvas.Left="78" Canvas.Top="684" Width="78" Source="/Assets/Icon/back-icon.png" Tap="btnBack"/>
-            <TextBlock Canvas.Left="90" TextWrapping="Wrap" Text="Trở về" Canvas.Top="759" Height="31"/>
-            <TextBlock Canvas.Left="185" FontSize="30" TextWrapping="Wrap" Text="TẠO PHÒNG MỚI" Canvas.Top="98"/>
+            <Image Height="92" Canvas.Left="46" Canvas.Top="46" Width="86" Source="/Assets/Icon/icon-list.png" RenderTransformOrigin="0.52,0.503"/>
+            <Image Height="58" Canvas.Left="10" Canvas.Top="706" Width="91" Source="/Assets/Icon/back-icon.png" Tap="btnBack"/>
+            <TextBlock Canvas.Left="29" TextWrapping="Wrap" Text="Trở về" Canvas.Top="769" Height="31"/>
+            <TextBlock Canvas.Left="157" FontSize="35" FontWeight="Bold" TextWrapping="Wrap" Text="TẠO PHÒNG MỚI" Canvas.Top="76"/>
             <TextBlock Canvas.Left="45" TextWrapping="Wrap" Text="Chủ phòng" Canvas.Top="253"/>
             <TextBlock Canvas.Left="45" TextWrapping="Wrap" Text="Số lượng" Canvas.Top="334"/>
-            <TextBox Height="72" Canvas.Left="157" TextWrapping="Wrap" Text="thanhphi0127" Canvas.Top="228" Width="313"/>
-            <TextBox Height="72" Canvas.Left="157" TextWrapping="Wrap" Text="2" Canvas.Top="309" Width="313"/>
+            <TextBox x:Name="txtChuphong" IsReadOnly="True" Height="72" Canvas.Left="157" TextWrapping="Wrap" Canvas.Top="228" Width="313"/>
+            <TextBox x:Name="txtSoluong" IsReadOnly="True" Height="72" Canvas.Left="157" TextWrapping="Wrap" Text="2" Canvas.Top="309" Width="313"/>
             <TextBlock Canvas.Left="45" TextWrapping="Wrap" Text="Mật khẩu" Canvas.Top="405"/>
             <TextBlock Canvas.Left="46" TextWrapping="Wrap" Text="Số dĩa" Canvas.Top="483"/>
-            <TextBox Height="72" Canvas.Left="157" TextWrapping="Wrap" Text="TextBox" Canvas.Top="386" Width="313"/>
-
-                    
+            <PasswordBox x:Name="txtMatkhau" Height="72" Canvas.Left="157" Canvas.Top="386" Width="313"/>
+            <Button x:Name="btnOK" Tap="btnAddNewRoom" Content="OK" Canvas.Left="185" Canvas.Top="577" Width="164" Height="89"/>
         </Canvas>
 
         <Grid x:Name="ContentPanel" Margin="154,457,10,256" RenderTransformOrigin="0.5,0.5">

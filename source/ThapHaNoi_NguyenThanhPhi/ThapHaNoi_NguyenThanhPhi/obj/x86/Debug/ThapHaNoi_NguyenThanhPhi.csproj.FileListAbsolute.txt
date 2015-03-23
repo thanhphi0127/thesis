@@ -106,3 +106,4 @@ E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ThapHaNoi_NguyenThanhPhi\Thap
 E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ThapHaNoi_NguyenThanhPhi\ThapHaNoi_NguyenThanhPhi\obj\x86\Debug\Source\Choidon\Help.g.cs
 E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ThapHaNoi_NguyenThanhPhi\ThapHaNoi_NguyenThanhPhi\obj\x86\Debug\Source\Choidon\TextControl.g.cs
 E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ThapHaNoi_NguyenThanhPhi\ThapHaNoi_NguyenThanhPhi\obj\x86\Debug\ThapHaNoi_NguyenThanhPhi.csprojResolveAssemblyReference.cache
+E:\ViCopper\NĂM 2014-2015\HKII\Luan Van TN\source\ThapHaNoi_NguyenThanhPhi\ThapHaNoi_NguyenThanhPhi\obj\x86\Debug\Source\Thachdau\PlayGameOnline.g.cs

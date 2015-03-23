@@ -33,7 +33,8 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         Sounds sounds = new Sounds();
         Function func = new Function();
 
-        TimeSpan time, effect;
+        TimeSpan effect;
+        private DateTime _startTime;
         private DispatcherTimer _timer, _effect;
         private TranslateTransform move = new TranslateTransform();
         private TransformGroup rectangleTransforms = new TransformGroup();
@@ -44,6 +45,11 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         int moveCount = 0;
         int numDisk = 3;
         int[] comboNumDisk = { 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        private int posImage = 0;
+        private string[] arrayImage = {"/Assets/Background/desert.png", 
+                                              "/Assets/Background/bg4.jpg", 
+                                              "/Assets/Background/bg5.jpg"};
 
         //Cac bien kieu giao dien de luu tru trang thai chuyen du lieu
         Canvas from, to;
@@ -92,6 +98,9 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             _timer = new DispatcherTimer();
             _timer.Tick += new EventHandler(TimerTick);
             _timer.Interval = new TimeSpan(0, 0, 0, 1);
+
+            _startTime = DateTime.Now.AddSeconds(1);
+            _timer.Start();
 
             //Xoa cac dia dang hien thi tren Canvas va luu tru trong stack
             _pole[0].stack.Clear(); 
@@ -336,7 +345,7 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         /// <param name="numDiskContinue">Su dung de dem thoi gian, don vi 1 giay cap nhat 1 lan</param>
         void TimerTick(object sender, EventArgs e)
         {
-            time = time.Add(new TimeSpan(0, 0, 1));
+            var time = DateTime.Now - _startTime;
             txtThoigian.Text = string.Format(Contants.TimeFormat, time.Hours, time.Minutes, time.Seconds);
         }
 
@@ -352,7 +361,6 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
 
             numDisk = int.Parse(listNumDisk.SelectedItem.ToString());
             RestartGame(numDisk);
-            _timer.Start();
             _effect.Start();
 
             canvasStart.Visibility = Visibility.Collapsed;
@@ -405,7 +413,6 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             //Tang so luong dia hien tai len 1 don vi
             numDisk = numDisk + 1;
             RestartGame(numDisk);
-            _timer.Start();
 
         }
 
@@ -436,12 +443,27 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             func.UpdateTable(txtNguoichoi, txtThoigian, txtSolan, numDisk, 4);
             canvasWin.Visibility = Visibility.Collapsed;
             RestartGame(numDisk);
-            _timer.Start();
         }
 
         private void BackKeyPress(object sender, CancelEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Source/Choidon/ChooseGame.xaml", UriKind.Relative));
         }
+
+                    
+
+        private void imgReload(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (canvasStart.Visibility == Visibility.Collapsed)
+            {
+                posImage++;
+                int numImage = posImage % arrayImage.Count();
+                BitmapImage bm = new BitmapImage(new Uri(arrayImage[numImage], UriKind.Relative));
+                imgBackground.Source = bm;
+                RestartGame(numDisk);
+            }
+        }
+
+
     }
 }

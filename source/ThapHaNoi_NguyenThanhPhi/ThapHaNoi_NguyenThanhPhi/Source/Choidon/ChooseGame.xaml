@@ -69,7 +69,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Background="Transparent" Margin="0,0,0,-20">
-            <Image Source="/Assets/Background/choosegame.jpg" Margin="0,-95,-13,36" HorizontalAlignment="Center"></Image>
+            <Image Source="/Assets/Background/main.jpg" Margin="0,-95,-13,36" HorizontalAlignment="Center"></Image>
             <Button x:Name="btnChoidon3" Content="Chơi đơn 3 Cọc" Tap="btnChoidon3coc" HorizontalAlignment="Left" Margin="191,280,0,0" VerticalAlignment="Top" Foreground="#FF2742BF"/>
             <Button x:Name="btnChoidon4" Content="Chơi đơn 4 Cọc" Tap="btnChoidon4coc" HorizontalAlignment="Left" Margin="465,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.939,0.565" Foreground="#FFEE3030"/>
 
@@ -89,7 +89,7 @@
                     <CompositeTransform/>
                 </Image.RenderTransform>
             </Image>
-            <Image Tap="imgTrangchu" Source="/Assets/Icon/trangchu.png" HorizontalAlignment="Left" Height="72" Margin="19,391,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.48,0.54"/>
+            <Image Tap="imgTrangchu" Source="/Assets/Icon/home_black.png" HorizontalAlignment="Left" Height="72" Margin="19,391,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.48,0.54"/>
             <TextBlock HorizontalAlignment="Left" Margin="100,414,0,0" TextWrapping="Wrap" Text="Trang chủ" VerticalAlignment="Top" Width="93" Foreground="#FF0A0A0A" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="282,44,0,0" TextWrapping="Wrap" Text="CHỌN SỐ CỌC" VerticalAlignment="Top" Height="60" Width="334" FontSize="48" Foreground="#FF0D5F14"/>
 

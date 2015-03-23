@@ -51,20 +51,19 @@
 
         <Canvas x:Name="canvas_Dangki">
 
-            <TextBox Height="72" TextWrapping="Wrap" Text="Nhập tên đăng nhập" Canvas.Left="54" Canvas.Top="247" Width="416"/>
-            <TextBox Height="72" Canvas.Left="54" TextWrapping="Wrap" Text="Nhập mật khẩu" Canvas.Top="381" Width="416"/>
-            <PasswordBox Height="72" Canvas.Left="54" Canvas.Top="381" Width="416"/>
+            <TextBox x:Name="txtUsername" Height="72" TextWrapping="Wrap" Text="" Canvas.Left="54" Canvas.Top="247" Width="416"/>
+            <PasswordBox x:Name="txtPassword" Height="72" Canvas.Left="54" Canvas.Top="381" Width="416"/>
             
             <TextBlock Canvas.Left="54" TextWrapping="Wrap" Text="Tên đăng nhập" Canvas.Top="215" RenderTransformOrigin="-0.031,1.703"/>
             <TextBlock Canvas.Left="54" TextWrapping="Wrap" Text="Mật khẩu" Canvas.Top="349" RenderTransformOrigin="-0.031,1.703"/>
-            <Button Content="Đăng kí" Canvas.Left="84" Canvas.Top="601" Width="169" Height="88"/>
-            <Button Content="Hủy bỏ" Canvas.Left="281" Canvas.Top="601" Height="88" Width="161"/>
-            <Image Height="116" Canvas.Left="96" Canvas.Top="65" Width="321" Source="/Assets/Icon/icon_dangky.gif"/>
+            <Button Tap="btnRegister" Content="Đăng kí" Canvas.Left="84" Canvas.Top="601" Width="169" Height="88"/>
+            <Button Content="Hủy bỏ" x:Name="Reset" Tap="btnReset" Canvas.Left="281" Canvas.Top="601" Height="88" Width="161"/>
+            <Image Source="/Assets/Icon/create.png" Height="167" Canvas.Left="196" Canvas.Top="35" Width="137"/>
             <Image Height="75" Canvas.Left="27" Canvas.Top="711" Width="78" Source="/Assets/Icon/back-icon.png" Tap="btnBack"/>
             <TextBlock Canvas.Left="132" TextWrapping="Wrap" Text="Trở về" Canvas.Top="733"/>
 
             <TextBlock Canvas.Left="54" TextWrapping="Wrap" Text="Xác nhận mật khẩu" Canvas.Top="483"/>
-            <PasswordBox Height="72" Canvas.Left="54" Canvas.Top="510" Width="416"/>
+            <PasswordBox x:Name="txtRepassword" Height="72" Canvas.Left="54" Canvas.Top="510" Width="416"/>
 
         </Canvas>
         

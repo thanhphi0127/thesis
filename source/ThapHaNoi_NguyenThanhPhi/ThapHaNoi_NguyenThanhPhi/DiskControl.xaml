@@ -15,12 +15,10 @@
             <GradientStop Color="Aqua" Offset="1" />
         </LinearGradientBrush>
     </UserControl.Resources>
-    <Grid>
-        <Rectangle x:Name="RectangleColor" Stroke="DarkGray" StrokeThickness="2" Fill="{StaticResource discBrush}" 
-                   RadiusX="10" RadiusY="15" ManipulationDelta="user_ManipulationDelta" />
-        <TextBlock x:Name="NumberDisk" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   Foreground="#FF060606" FontWeight="Bold" FontSize="21" Margin="224,227,204,208" Height="45" Width="52" />
-    </Grid>
-
-</UserControl>
     
+    <Grid x:Name="LayoutRoot">
+        <Rectangle x:Name="RectangleColor" Stroke="DarkGray" StrokeThickness="2" Fill="{StaticResource discBrush}" 
+                   RadiusX="10" RadiusY="15" />
+        <TextBlock x:Name="txtNumber" Foreground="#FF060606" FontWeight="Bold" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center" Text="100" TextAlignment="Center"></TextBlock>
+    </Grid>
+</UserControl>

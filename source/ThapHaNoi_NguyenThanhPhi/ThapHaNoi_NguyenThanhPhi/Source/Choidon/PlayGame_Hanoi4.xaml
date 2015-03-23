@@ -72,27 +72,27 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Background="Transparent" Margin="0,0,0,53">
-            <Image Source="/Assets/Background/desert.png" Margin="0,-2,0,2"></Image>
+            <Image x:Name="imgBackground" Source="/Assets/Background/desert.png" Margin="0,-2,0,2"></Image>
             <Grid x:Name="Rod">
-                <Canvas x:Name="CavasRodD" Tap="Tap_Canvas" Margin="594,43,-14,56">
+                <Canvas x:Name="CavasRodD" Tap="Tap_Canvas" Margin="558,43,22,56">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/Coc_d.png"/>
                     </Canvas.Background>
                 </Canvas>
 
-                <Canvas x:Name="CavasRodC" Tap="Tap_Canvas" Margin="408,43,169,56">
+                <Canvas x:Name="CavasRodC" Tap="Tap_Canvas" Margin="378,43,199,56">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/Coc_c.png"/>
                     </Canvas.Background>
                 </Canvas>
 
-                <Canvas x:Name="CavasRodB" Tap="Tap_Canvas" Margin="222,43,358,56">
+                <Canvas x:Name="CavasRodB" Tap="Tap_Canvas" Margin="198,43,382,56">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/coc_b.png"/>
                     </Canvas.Background>
                 </Canvas>
 
-                <Canvas x:Name="CavasRodA" Margin="39,41,541,58" Tap="Tap_Canvas" ManipulationDelta="CavasRodA_ManipulationDelta">
+                <Canvas x:Name="CavasRodA" Margin="21,41,559,58" Tap="Tap_Canvas" ManipulationDelta="CavasRodA_ManipulationDelta">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/coc_a.png"/>
                     </Canvas.Background>
@@ -111,9 +111,9 @@
         </Grid>
         
         <Canvas x:Name="canvasStart" Visibility="Visible" Margin="0,0,0,111">
-            <Image Source="/Assets/Background/start_choidon.png" Width="637" Height="438" Canvas.Left="107" Canvas.Top="19"></Image>
-            <TextBlock Canvas.Left="242" FontSize="23" Foreground="Red" TextWrapping="Wrap" Text="Số Đĩa" Canvas.Top="292" Width="70"/>
-            <TextBlock Canvas.Left="226" TextWrapping="Wrap" Text="CHỌN SỐ LƯỢNG ĐĨA" Canvas.Top="152" FontSize="40" FontWeight="Bold">
+            <Image Source="/Assets/Background/start_choidon.png" Width="637" Height="438" Canvas.Left="95" Canvas.Top="19"></Image>
+            <TextBlock Canvas.Left="208" FontSize="23" Foreground="Red" TextWrapping="Wrap" Text="Số Đĩa" Canvas.Top="292" Width="70"/>
+            <TextBlock Canvas.Left="218" TextWrapping="Wrap" Text="CHỌN SỐ LƯỢNG ĐĨA" Canvas.Top="152" FontSize="40" FontWeight="Bold">
             	<TextBlock.Foreground>
             		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             			<GradientStop Color="Black" Offset="0"/>
@@ -126,10 +126,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <toolkit:ListPicker FullModeItemTemplate="{Binding lpkFullItemTemplate}" ItemTemplate="{Binding lpkItemTemplate}" x:Name="listNumDisk" Margin="158,-184,-308,120" RenderTransformOrigin="0.488,0.54"/>
+                <toolkit:ListPicker FullModeItemTemplate="{Binding lpkFullItemTemplate}" ItemTemplate="{Binding lpkItemTemplate}" x:Name="listNumDisk" Margin="124,-184,-274,120" RenderTransformOrigin="0.488,0.54"/>
             </Grid>
-            <Button x:Name="btnPlay" Content="Bắt đầu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Background="#FF09950F" Tap="btnPlay_Tap" FontSize="14" Height="82" Canvas.Left="531" Canvas.Top="267"/>
-            <Image Source="/Assets/Icon/start-icon.png" Height="74" Canvas.Left="477" Canvas.Top="272" Width="65"/>
+            <Button x:Name="btnPlay" Content="Bắt đầu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Background="#FF09950F" Tap="btnPlay_Tap" FontSize="14" Height="82" Canvas.Left="497" Canvas.Top="267"/>
+            <Image Source="/Assets/Icon/start-icon.png" Height="74" Canvas.Left="443" Canvas.Top="272" Width="65"/>
         </Canvas>
 
         <Canvas x:Name="canvasWin" Visibility="Collapsed"  Margin="99,84,64,170">
@@ -145,6 +145,7 @@
         </Canvas>
         
         <Image Source="/Assets/Icon/left-arrow-icon.png" Tap="imgBack" HorizontalAlignment="Left" Height="58" Margin="0,422,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.562,-5.716"/>
+        <Image Source="/Assets/Icon/reload.png" Tap="imgReload" HorizontalAlignment="Left" Height="44" Margin="749,430,0,0" VerticalAlignment="Top" Width="47"/>
     </Grid>
 
 </phone:PhoneApplicationPage>

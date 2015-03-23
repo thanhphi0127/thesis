@@ -168,4 +168,9 @@ namespace ThapHaNoi_NguyenThanhPhi
             return stringDate;
         }
     }
+
+    public static class Client
+    {
+        public static string username = "";
+    }
 }

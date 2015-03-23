@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TowerHanoiModelStoreContainer" CdmEntityContainer="TowerHanoiEntities">
+    <EntitySetMapping Name="MUCDOes">
+      <EntityTypeMapping TypeName="TowerHanoiModel.MUCDO">
+        <MappingFragment StoreEntitySet="MUCDO">
+          <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOICHOIs">
+      <EntityTypeMapping TypeName="TowerHanoiModel.NGUOICHOI">
+        <MappingFragment StoreEntitySet="NGUOICHOI">
+          <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGCHOIs">
+      <EntityTypeMapping TypeName="TowerHanoiModel.PHONGCHOI">
+        <MappingFragment StoreEntitySet="PHONGCHOI">
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+          <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="NGUOITHANG" ColumnName="NGUOITHANG" />
+          <ScalarProperty Name="CHUPHONG" ColumnName="CHUPHONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THANHTICHes">
+      <EntityTypeMapping TypeName="TowerHanoiModel.THANHTICH">
+        <MappingFragment StoreEntitySet="THANHTICH">
+          <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+          <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+          <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+          <ScalarProperty Name="SOBUOCCHUYEN" ColumnName="SOBUOCCHUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="NGUOICHOI_PHONGCHOI" TypeName="TowerHanoiModel.NGUOICHOI_PHONGCHOI" StoreEntitySet="NGUOICHOI_PHONGCHOI">
+      <EndProperty Name="PHONGCHOI">
+        <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+      </EndProperty>
+      <EndProperty Name="NGUOICHOI">
+        <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

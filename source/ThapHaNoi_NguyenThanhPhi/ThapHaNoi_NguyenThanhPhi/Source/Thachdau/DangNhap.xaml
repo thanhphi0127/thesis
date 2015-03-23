@@ -53,15 +53,15 @@
             </Border.Background>
         </Border>
         <Canvas x:Name="canvasDangnhap">
-            <TextBox x:Name="txtUsername" Height="72" TabIndex="1" TextWrapping="Wrap" Text="Nhập tên đăng nhập" Canvas.Left="54" Canvas.Top="247" Width="416"/>
-            <PasswordBox x:Name="txtPassword" Height="72" Password="******" TabIndex="2" Canvas.Left="54" Canvas.Top="381" Width="416"></PasswordBox>
+            <TextBox x:Name="txtUsername" Height="72" TabIndex="1" TextWrapping="Wrap" Text="" Canvas.Left="54" Canvas.Top="247" Width="416"/>
+            <PasswordBox x:Name="txtPassword" Height="72" Password="" TabIndex="2" Canvas.Left="54" Canvas.Top="381" Width="416"></PasswordBox>
             
             <TextBlock Canvas.Left="54" TextWrapping="Wrap" Text="Tên đăng nhập" Canvas.Top="215" RenderTransformOrigin="-0.031,1.703"/>
             <TextBlock Canvas.Left="54" TextWrapping="Wrap" Text="Mật khẩu" Canvas.Top="349" RenderTransformOrigin="-0.031,1.703"/>
             <Button Content="Đăng nhập" Canvas.Left="72" Canvas.Top="485" Width="169" Height="88" Tap="btn_Dangnhap">
             </Button>
-            <Button Content="Hủy bỏ" Canvas.Left="300" Canvas.Top="485" Height="88" Width="148"/>
-            <Image Height="140" Canvas.Left="174" Canvas.Top="51" Width="163" Source="/Assets/Icon/login.png"/>
+            <Button x:Name="Reset" Tap="btnReset" Content="Hủy bỏ" Canvas.Left="272" Canvas.Top="485" Height="88" Width="169"/>
+            <Image Height="191" Canvas.Left="154" Canvas.Top="24" Width="201" Source="/Assets/Icon/lock.png"/>
             <Image Height="78" Canvas.Left="404" Canvas.Top="708" Width="66" Source="/Assets/Icon/register.png" Tap="imgDangki">
             </Image>
             <Image Height="75" Canvas.Left="27" Canvas.Top="711" Width="78" Source="/Assets/Icon/back-icon.png" Tap="btnBack"/>

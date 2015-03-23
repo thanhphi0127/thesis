@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TowerHanoiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TowerHanoiModelStoreContainer">
+          <EntitySet Name="MUCDO" EntityType="TowerHanoiModel.Store.MUCDO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NGUOICHOI" EntityType="TowerHanoiModel.Store.NGUOICHOI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NGUOICHOI_PHONGCHOI" EntityType="TowerHanoiModel.Store.NGUOICHOI_PHONGCHOI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PHONGCHOI" EntityType="TowerHanoiModel.Store.PHONGCHOI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="THANHTICH" EntityType="TowerHanoiModel.Store.THANHTICH" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_NGUOICHO_NGUOICHOI" Association="TowerHanoiModel.Store.FK_NGUOICHO_NGUOICHOI">
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOI" />
+            <End Role="NGUOICHOI_PHONGCHOI" EntitySet="NGUOICHOI_PHONGCHOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGUOICHOI_PHONGCHOI_PHONGCHOI" Association="TowerHanoiModel.Store.FK_NGUOICHOI_PHONGCHOI_PHONGCHOI">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOI" />
+            <End Role="NGUOICHOI_PHONGCHOI" EntitySet="NGUOICHOI_PHONGCHOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONGCHO_MUCDO" Association="TowerHanoiModel.Store.FK_PHONGCHO_MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDO" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHTICH" Association="TowerHanoiModel.Store.FK_THANHTICH">
+            <End Role="MUCDO" EntitySet="MUCDO" />
+            <End Role="THANHTICH" EntitySet="THANHTICH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHTICH_NGUOICHOI" Association="TowerHanoiModel.Store.FK_THANHTICH_NGUOICHOI">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOI" />
+            <End Role="THANHTICH" EntitySet="THANHTICH" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MUCDO">
+          <Key>
+            <PropertyRef Name="SODIA" />
+          </Key>
+          <Property Name="SODIA" Type="int" Nullable="false" />
+          <Property Name="MOTA" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="NGUOICHOI">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="MATKHAU" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="NGUOICHOI_PHONGCHOI">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+            <PropertyRef Name="TAIKHOAN" />
+          </Key>
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="TAIKHOAN" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PHONGCHOI">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="int" Nullable="false" />
+          <Property Name="SODIA" Type="int" Nullable="false" />
+          <Property Name="TENPHONG" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="TINHTRANG" Type="int" />
+          <Property Name="MATKHAU" Type="varchar" MaxLength="32" />
+          <Property Name="NGUOITHANG" Type="varchar" MaxLength="50" />
+          <Property Name="CHUPHONG" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="THANHTICH">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="SODIA" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="SODIA" Type="int" Nullable="false" />
+          <Property Name="THOIGIAN" Type="time" />
+          <Property Name="SOBUOCCHUYEN" Type="int" />
+        </EntityType>
+        <Association Name="FK_NGUOICHO_NGUOICHOI">
+          <End Role="PHONGCHOI" Type="TowerHanoiModel.Store.PHONGCHOI" Multiplicity="1" />
+          <End Role="NGUOICHOI_PHONGCHOI" Type="TowerHanoiModel.Store.NGUOICHOI_PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGCHOI">
+              <PropertyRef Name="MAPHONG" />
+            </Principal>
+            <Dependent Role="NGUOICHOI_PHONGCHOI">
+              <PropertyRef Name="MAPHONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGUOICHOI_PHONGCHOI_PHONGCHOI">
+          <End Role="NGUOICHOI" Type="TowerHanoiModel.Store.NGUOICHOI" Multiplicity="1" />
+          <End Role="NGUOICHOI_PHONGCHOI" Type="TowerHanoiModel.Store.NGUOICHOI_PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="NGUOICHOI_PHONGCHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONGCHO_MUCDO">
+          <End Role="MUCDO" Type="TowerHanoiModel.Store.MUCDO" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="TowerHanoiModel.Store.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="SODIA" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="SODIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THANHTICH">
+          <End Role="MUCDO" Type="TowerHanoiModel.Store.MUCDO" Multiplicity="1" />
+          <End Role="THANHTICH" Type="TowerHanoiModel.Store.THANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="SODIA" />
+            </Principal>
+            <Dependent Role="THANHTICH">
+              <PropertyRef Name="SODIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THANHTICH_NGUOICHOI">
+          <End Role="NGUOICHOI" Type="TowerHanoiModel.Store.NGUOICHOI" Multiplicity="1" />
+          <End Role="THANHTICH" Type="TowerHanoiModel.Store.THANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="THANHTICH">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TowerHanoiModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TowerHanoiEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="MUCDOes" EntityType="TowerHanoiModel.MUCDO" />
+          <EntitySet Name="NGUOICHOIs" EntityType="TowerHanoiModel.NGUOICHOI" />
+          <EntitySet Name="PHONGCHOIs" EntityType="TowerHanoiModel.PHONGCHOI" />
+          <EntitySet Name="THANHTICHes" EntityType="TowerHanoiModel.THANHTICH" />
+          <AssociationSet Name="FK_PHONGCHO_MUCDO" Association="TowerHanoiModel.FK_PHONGCHO_MUCDO">
+            <End Role="MUCDO" EntitySet="MUCDOes" />
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOIs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHTICH" Association="TowerHanoiModel.FK_THANHTICH">
+            <End Role="MUCDO" EntitySet="MUCDOes" />
+            <End Role="THANHTICH" EntitySet="THANHTICHes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHTICH_NGUOICHOI" Association="TowerHanoiModel.FK_THANHTICH_NGUOICHOI">
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOIs" />
+            <End Role="THANHTICH" EntitySet="THANHTICHes" />
+          </AssociationSet>
+          <AssociationSet Name="NGUOICHOI_PHONGCHOI" Association="TowerHanoiModel.NGUOICHOI_PHONGCHOI">
+            <End Role="PHONGCHOI" EntitySet="PHONGCHOIs" />
+            <End Role="NGUOICHOI" EntitySet="NGUOICHOIs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MUCDO">
+          <Key>
+            <PropertyRef Name="SODIA" />
+          </Key>
+          <Property Name="SODIA" Type="Int32" Nullable="false" />
+          <Property Name="MOTA" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PHONGCHOIs" Relationship="TowerHanoiModel.FK_PHONGCHO_MUCDO" FromRole="MUCDO" ToRole="PHONGCHOI" />
+          <NavigationProperty Name="THANHTICHes" Relationship="TowerHanoiModel.FK_THANHTICH" FromRole="MUCDO" ToRole="THANHTICH" />
+        </EntityType>
+        <EntityType Name="NGUOICHOI">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="MATKHAU" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="THANHTICHes" Relationship="TowerHanoiModel.FK_THANHTICH_NGUOICHOI" FromRole="NGUOICHOI" ToRole="THANHTICH" />
+          <NavigationProperty Name="PHONGCHOIs" Relationship="TowerHanoiModel.NGUOICHOI_PHONGCHOI" FromRole="NGUOICHOI" ToRole="PHONGCHOI" />
+        </EntityType>
+        <EntityType Name="PHONGCHOI">
+          <Key>
+            <PropertyRef Name="MAPHONG" />
+          </Key>
+          <Property Name="MAPHONG" Type="Int32" Nullable="false" />
+          <Property Name="SODIA" Type="Int32" Nullable="false" />
+          <Property Name="TENPHONG" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="TINHTRANG" Type="Int32" />
+          <Property Name="MATKHAU" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="NGUOITHANG" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CHUPHONG" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="MUCDO" Relationship="TowerHanoiModel.FK_PHONGCHO_MUCDO" FromRole="PHONGCHOI" ToRole="MUCDO" />
+          <NavigationProperty Name="NGUOICHOIs" Relationship="TowerHanoiModel.NGUOICHOI_PHONGCHOI" FromRole="PHONGCHOI" ToRole="NGUOICHOI" />
+        </EntityType>
+        <EntityType Name="THANHTICH">
+          <Key>
+            <PropertyRef Name="TAIKHOAN" />
+            <PropertyRef Name="SODIA" />
+          </Key>
+          <Property Name="TAIKHOAN" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="SODIA" Type="Int32" Nullable="false" />
+          <Property Name="THOIGIAN" Type="Time" Precision="7" />
+          <Property Name="SOBUOCCHUYEN" Type="Int32" />
+          <NavigationProperty Name="MUCDO" Relationship="TowerHanoiModel.FK_THANHTICH" FromRole="THANHTICH" ToRole="MUCDO" />
+          <NavigationProperty Name="NGUOICHOI" Relationship="TowerHanoiModel.FK_THANHTICH_NGUOICHOI" FromRole="THANHTICH" ToRole="NGUOICHOI" />
+        </EntityType>
+        <Association Name="FK_PHONGCHO_MUCDO">
+          <End Role="MUCDO" Type="TowerHanoiModel.MUCDO" Multiplicity="1" />
+          <End Role="PHONGCHOI" Type="TowerHanoiModel.PHONGCHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="SODIA" />
+            </Principal>
+            <Dependent Role="PHONGCHOI">
+              <PropertyRef Name="SODIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THANHTICH">
+          <End Role="MUCDO" Type="TowerHanoiModel.MUCDO" Multiplicity="1" />
+          <End Role="THANHTICH" Type="TowerHanoiModel.THANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUCDO">
+              <PropertyRef Name="SODIA" />
+            </Principal>
+            <Dependent Role="THANHTICH">
+              <PropertyRef Name="SODIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THANHTICH_NGUOICHOI">
+          <End Role="NGUOICHOI" Type="TowerHanoiModel.NGUOICHOI" Multiplicity="1" />
+          <End Role="THANHTICH" Type="TowerHanoiModel.THANHTICH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOICHOI">
+              <PropertyRef Name="TAIKHOAN" />
+            </Principal>
+            <Dependent Role="THANHTICH">
+              <PropertyRef Name="TAIKHOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NGUOICHOI_PHONGCHOI">
+          <End Role="PHONGCHOI" Type="TowerHanoiModel.PHONGCHOI" Multiplicity="*" />
+          <End Role="NGUOICHOI" Type="TowerHanoiModel.NGUOICHOI" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TowerHanoiModelStoreContainer" CdmEntityContainer="TowerHanoiEntities">
+          <EntitySetMapping Name="MUCDOes">
+            <EntityTypeMapping TypeName="TowerHanoiModel.MUCDO">
+              <MappingFragment StoreEntitySet="MUCDO">
+                <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUOICHOIs">
+            <EntityTypeMapping TypeName="TowerHanoiModel.NGUOICHOI">
+              <MappingFragment StoreEntitySet="NGUOICHOI">
+                <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGCHOIs">
+            <EntityTypeMapping TypeName="TowerHanoiModel.PHONGCHOI">
+              <MappingFragment StoreEntitySet="PHONGCHOI">
+                <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+                <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+                <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="NGUOITHANG" ColumnName="NGUOITHANG" />
+                <ScalarProperty Name="CHUPHONG" ColumnName="CHUPHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THANHTICHes">
+            <EntityTypeMapping TypeName="TowerHanoiModel.THANHTICH">
+              <MappingFragment StoreEntitySet="THANHTICH">
+                <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+                <ScalarProperty Name="SODIA" ColumnName="SODIA" />
+                <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+                <ScalarProperty Name="SOBUOCCHUYEN" ColumnName="SOBUOCCHUYEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="NGUOICHOI_PHONGCHOI" TypeName="TowerHanoiModel.NGUOICHOI_PHONGCHOI" StoreEntitySet="NGUOICHOI_PHONGCHOI">
+            <EndProperty Name="PHONGCHOI">
+              <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+            </EndProperty>
+            <EndProperty Name="NGUOICHOI">
+              <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="531ad3a4786643d8bb80d6cb28433cc3" Name="Diagram1">
+        <EntityTypeShape EntityType="TowerHanoiModel.MUCDO" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TowerHanoiModel.NGUOICHOI" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TowerHanoiModel.PHONGCHOI" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TowerHanoiModel.THANHTICH" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="TowerHanoiModel.FK_PHONGCHO_MUCDO" ManuallyRouted="false" />
+        <AssociationConnector Association="TowerHanoiModel.FK_THANHTICH" ManuallyRouted="false" />
+        <AssociationConnector Association="TowerHanoiModel.FK_THANHTICH_NGUOICHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="TowerHanoiModel.NGUOICHOI_PHONGCHOI" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

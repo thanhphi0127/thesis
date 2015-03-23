@@ -17,7 +17,7 @@ namespace ThapHaNoi_NguyenThanhPhi
 		}
 
 		public override string ToString() {
-			return string.Format("Di chuyển {0} đến {1}", From, To);
+			return string.Format("Chuyển {0} qua {1}", From, To);
 
 		}
          

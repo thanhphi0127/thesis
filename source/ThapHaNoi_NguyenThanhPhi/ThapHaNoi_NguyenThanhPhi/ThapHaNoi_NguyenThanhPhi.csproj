@@ -111,7 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\TestWCFWeb\Reference.cs">
+    <Compile Include="Service References\TowerHanoiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -151,6 +151,9 @@
     </Compile>
     <Compile Include="Source\Thachdau\Danhsachphongchoi.xaml.cs">
       <DependentUpon>Danhsachphongchoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Thachdau\PlayGameOnline.xaml.cs">
+      <DependentUpon>PlayGameOnline.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\Thachdau\Taophong.xaml.cs">
       <DependentUpon>Taophong.xaml</DependentUpon>
@@ -213,41 +216,64 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Source\Thachdau\PlayGameOnline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\Thachdau\Taophong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Background\bg4.jpg" />
     <Content Include="Assets\Background\background_win.jpg" />
+    <Content Include="Assets\Background\bg2.jpg" />
+    <Content Include="Assets\Background\brown.jpg" />
     <Content Include="Assets\Background\choosegame.jpg" />
+    <Content Include="Assets\Background\bg3.jpg" />
+    <Content Include="Assets\Background\bg5.jpg" />
+    <Content Include="Assets\Background\hd.jpg" />
     <Content Include="Assets\Background\image007.png" />
     <Content Include="Assets\Background\main.jpg" />
     <Content Include="Assets\Background\Coc_d.png" />
     <Content Include="Assets\Icon\33.png" />
     <Content Include="Assets\Icon\44.png" />
-    <Content Include="Assets\Icon\4coc.png" />
-    <Content Include="Assets\Icon\3coc.png" />
+    <Content Include="Assets\Icon\back-icon.png" />
+    <Content Include="Assets\Icon\book.png" />
     <Content Include="Assets\Icon\caidat.png" />
+    <Content Include="Assets\Icon\create.png" />
+    <Content Include="Assets\Icon\game.png" />
+    <Content Include="Assets\Icon\global.png" />
     <Content Include="Assets\Icon\help.png" />
-    <Content Include="Assets\Icon\trangchu.png" />
+    <Content Include="Assets\Icon\home.png" />
+    <Content Include="Assets\Icon\home_black.png" />
+    <Content Include="Assets\Icon\list.jpg" />
+    <Content Include="Assets\Icon\list.png" />
+    <Content Include="Assets\Icon\lock.png" />
+    <Content Include="Assets\Icon\reload.png" />
+    <Content Include="Assets\Icon\room.jpg" />
+    <Content Include="Assets\Icon\Volume-main.png" />
+    <Content Include="Assets\Logo\choidon.png" />
+    <Content Include="Assets\Logo\huongdan.png" />
+    <Content Include="Assets\Logo\thachdau.png" />
+    <Content Include="Assets\Logo\thachdautructuyen.png" />
+    <Content Include="Assets\Logo\thanhtich.png" />
     <Content Include="Help-and-support-icon.png" />
     <Content Include="icon title - large.png" />
     <Content Include="icon title - small.png" />
-    <None Include="Service References\TestWCFWeb\Service1.disco" />
-    <None Include="Service References\TestWCFWeb\configuration91.svcinfo" />
-    <None Include="Service References\TestWCFWeb\configuration.svcinfo" />
-    <None Include="Service References\TestWCFWeb\Reference.svcmap">
+    <None Include="Service References\TowerHanoiService\Service1.disco" />
+    <None Include="Service References\TowerHanoiService\configuration91.svcinfo" />
+    <None Include="Service References\TowerHanoiService\configuration.svcinfo" />
+    <None Include="Service References\TowerHanoiService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="ServiceReferences.ClientConfig">
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Service References\TestWCFWeb\Service1.wsdl" />
-    <None Include="Service References\TestWCFWeb\Service1.xsd" />
-    <None Include="Service References\TestWCFWeb\Service11.xsd" />
-    <None Include="Service References\TestWCFWeb\Service12.xsd" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\TowerHanoiService\Service1.wsdl" />
+    <None Include="Service References\TowerHanoiService\Service1.xsd" />
+    <None Include="Service References\TowerHanoiService\Service11.xsd" />
+    <None Include="Service References\TowerHanoiService\Service12.xsd" />
     <None Include="Source\Thachdau\app.config" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
@@ -280,26 +306,16 @@
     <Content Include="Assets\Background\listphongchoi.jpg" />
     <Content Include="Assets\Background\list2.jpg" />
     <Content Include="Assets\Background\Xephangcanhan.jpg" />
-    <Content Include="Assets\Icon\back.png" />
     <Content Include="Assets\Icon\delete.png" />
     <Content Include="Assets\Icon\choidon.ico" />
     <Content Include="Assets\Icon\left-arrow-icon.png" />
     <Content Include="Assets\Icon\start-icon.png" />
-    <Content Include="Assets\Icon\thachdau.png" />
     <Content Include="Assets\Icon\icon-list.png" />
     <Content Include="Assets\Icon\add.png" />
-    <Content Include="Assets\Icon\back-icon.png" />
     <Content Include="Assets\Icon\icon_huongdan.png" />
-    <Content Include="Assets\Icon\login.png" />
-    <Content Include="Assets\Icon\register.png" />
-    <Content Include="Assets\Icon\Thongtin.png" />
     <Content Include="Assets\Icon\top.png" />
     <Content Include="Assets\Icon\Volume-Normal.png" />
     <Content Include="Assets\Logo\main_huongdan.png" />
-    <Content Include="Assets\Logo\choidon.png" />
-    <Content Include="Assets\Logo\huongdan.png" />
-    <Content Include="Assets\Logo\thanhtich.png" />
-    <Content Include="Assets\Logo\thachdautructuyen.png" />
     <Content Include="Assets\Logo\main.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -331,9 +347,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Microsoft.Advertising.Mobile, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="microsoft.advertising.mobile.ui, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Controls, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -356,7 +369,10 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\TestWCFWeb\" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\TowerHanoiService\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

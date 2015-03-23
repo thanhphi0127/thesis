@@ -13,7 +13,6 @@ using ThapHaNoi_NguyenThanhPhi.Resources;
 using System.Diagnostics;
 using System.ServiceModel;
 
-using ThapHaNoi_NguyenThanhPhi.TestWCFWeb;
 
 namespace ThapHaNoi_NguyenThanhPhi
 {
@@ -28,6 +27,7 @@ namespace ThapHaNoi_NguyenThanhPhi
             InitializeComponent();
             func.CreateLocalDatabase();
             sounds.Play("main");
+
         }
 
         /// <summary>
@@ -127,16 +127,16 @@ namespace ThapHaNoi_NguyenThanhPhi
 
         private void LoadEvent(object sender, RoutedEventArgs e)
         {
-            //StoryboardChoose.Begin();
+            Affect_Move.Begin();
         }
 
 
-        private Service1Client client;
+        //private Service1Client client;
 
         private void imgSeting(object sender, System.Windows.Input.GestureEventArgs e)
         {
             sounds.Play("click");
-            
+            /*
             //TestClient client = new TestClient();
             if (client == null)
             {
@@ -144,10 +144,11 @@ namespace ThapHaNoi_NguyenThanhPhi
                 client.GetDataCompleted += new EventHandler<GetDataCompletedEventArgs>(client_AddCompleted);
             }
             client.GetDataAsync(1);
+             * */
 
 
         }
-
+        /*
         void client_AddCompleted(object sender, GetDataCompletedEventArgs e)
         {
             if (e.Error == null)
@@ -155,6 +156,7 @@ namespace ThapHaNoi_NguyenThanhPhi
                 MessageBox.Show("The answer is " + e.Result);
             }
         }
+         * */
 
     }
 }

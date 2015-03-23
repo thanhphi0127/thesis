@@ -9,9 +9,9 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:32546/Service1.svc" binding="basicHttpBinding"
-                bindingConfiguration="BasicHttpBinding_IService1" contract="TestWCFWeb.IService1"
-                name="BasicHttpBinding_IService1" />
+            <endpoint address="http://192.168.100.113/WebServiceForTesting/Service1.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IService1"
+                contract="TowerHanoiService.IService1" name="BasicHttpBinding_IService1" />
         </client>
     </system.serviceModel>
 </configuration>

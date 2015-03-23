@@ -53,11 +53,18 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             //Cac bien cuc bo cho viec luu tru du lieu 
             private int moveCount = 0;
             private int numDisk = 3;
+            private int posImage = 0;
+            private string[] arrayImage = {"/Assets/Background/beach.jpg", 
+                                              "/Assets/Background/bg2.jpg", 
+                                              "/Assets/Background/bg3.jpg"};
+
             private int[] comboNumDisk = { 3, 4, 5, 6, 7, 8, 9, 10 };
 
             //Cac bien kieu giao dien de luu tru trang thai chuyen du lieu
             private Canvas from, to;
             private DiskControl diskTab, temp;
+
+
 
         #endregion
 
@@ -70,6 +77,7 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         {
             InitializeComponent();
             sounds.Stop("main");
+            
             this.listNumDisk.ItemsSource = comboNumDisk;
 
             //Khoi tao bo dem thoi gian DispatcherTimer
@@ -77,6 +85,8 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             _timer = new DispatcherTimer();
             _timer.Tick += new EventHandler(TimerTick);
             _timer.Interval = new TimeSpan(0, 0, 0, 1);
+
+            effectStartBegin.Begin();
 
         }
 
@@ -101,6 +111,7 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
 
 
             _startTime = DateTime.Now.AddSeconds(1);
+            _timer.Start();
 
             //Visibility
             //Rod.Visibility = Visibility.Collapsed;
@@ -121,7 +132,7 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             _pole[0].Init(numDiskContinue, CavasRodA);
             moveCount = 0;
             //Visibility cac canvas bat dau choi va chien thang
-            canvasStart.Visibility = Visibility.Collapsed;
+            //canvasStart.Visibility = Visibility.Collapsed;
             canvasWin.Visibility = Visibility.Collapsed;
         }
 
@@ -341,15 +352,15 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         private void btnPlay_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             sounds.Play("click");
-            //sounds.Play("select");
-
             
             numDisk = int.Parse(listNumDisk.SelectedItem.ToString());
+            effectStartEnd.Begin();
+
             RestartGame(numDisk);
-            _timer.Start();
+
             Rod.Visibility = Visibility.Visible;
             Dieuhuong.Visibility = Visibility.Visible;
-            canvasStart.Visibility = Visibility.Collapsed;
+            //canvasStart.Visibility = Visibility.Collapsed;
             canvasWin.Visibility = Visibility.Collapsed;      
         }
 
@@ -402,7 +413,7 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
             numDisk = numDisk + 1;
             InitializeComponent();
             RestartGame(numDisk);
-            _timer.Start();
+            
 
         }
 
@@ -435,18 +446,29 @@ namespace ThapHaNoi_NguyenThanhPhi.Source.Choidon
         /// <purpose></purpose>
         private void btnChoiLai(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            _timer.Start();
             canvasWin.Visibility = Visibility.Collapsed;
 
             //Lưu thông tin điểm số người chơi.
             func.UpdateTable(txtNguoichoi, txtThoigian, txtSolan, numDisk, 3);
-
             RestartGame(numDisk);
         }
 
         private void BackKeyPress(object sender, CancelEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Source/Choidon/ChooseGame.xaml", UriKind.Relative));
+        }
+
+        private void imgReload(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (canvasStart.Visibility == Visibility.Collapsed)
+            {
+                posImage++;
+                int numImage = posImage % arrayImage.Count();
+                BitmapImage bm = new BitmapImage(new Uri(arrayImage[numImage], UriKind.Relative));
+                imgBackground.Source = bm;
+                RestartGame(numDisk);
+            }
+
         }
 
     }

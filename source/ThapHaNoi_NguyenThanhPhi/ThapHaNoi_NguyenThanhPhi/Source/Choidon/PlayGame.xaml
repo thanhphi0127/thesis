@@ -60,6 +60,20 @@
             <DoubleAnimationUsingKeyFrames Duration="0:0:3" 
 					Storyboard.TargetProperty="(Canvas.Bottom)"/>
         </Storyboard>
+        <Storyboard x:Name="effectStartBegin">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="canvasStart">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-484"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="canvasStart">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-4"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-2"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="effectStartEnd">
+        	<DoubleAnimation Duration="0:0:0.7" To="4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="canvasStart" d:IsOptimized="True"/>
+        	<DoubleAnimation Duration="0:0:0.7" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="canvasStart" d:IsOptimized="True"/>
+        </Storyboard>
         
     </phone:PhoneApplicationPage.Resources>
 
@@ -72,21 +86,21 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Background="Transparent" Margin="0,0,0,53">
-            <Image Source="/Assets/Background/beach.jpg" Margin="0,-20,0,59"></Image>
+            <Image x:Name="imgBackground" Source="/Assets/Background/beach.jpg" Margin="0,-20,0,59"></Image>
             <Grid x:Name="Rod">
-                <Canvas x:Name="CavasRodA" Margin="98,41,482,58" Tap="Tap_Canvas" ManipulationDelta="CavasRodA_ManipulationDelta">
+                <Canvas x:Name="CavasRodA" Margin="84,41,496,58" Tap="Tap_Canvas" ManipulationDelta="CavasRodA_ManipulationDelta">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/coc_a.png"/>
                     </Canvas.Background>
                 </Canvas>
 
-                <Canvas x:Name="CavasRodB" Tap="Tap_Canvas" Margin="325,44,255,55">
+                <Canvas x:Name="CavasRodB" Tap="Tap_Canvas" Margin="313,44,267,55">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/coc_b.png"/>
                     </Canvas.Background>
                 </Canvas>
 
-                <Canvas x:Name="CavasRodC" Tap="Tap_Canvas" Margin="554,41,33,58">
+                <Canvas x:Name="CavasRodC" Tap="Tap_Canvas" Margin="538,41,49,58">
                     <Canvas.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Assets/Background/Coc_c.png"/>
                     </Canvas.Background>
@@ -104,7 +118,10 @@
 
         </Grid>
 
-        <Canvas x:Name="canvasStart" Visibility="Visible" Margin="0,0,0,111">
+        <Canvas x:Name="canvasStart" Visibility="Visible" Margin="0,0,0,111" RenderTransformOrigin="0.5,0.5">
+        	<Canvas.RenderTransform>
+        		<CompositeTransform/>
+        	</Canvas.RenderTransform>
             <Image Source="/Assets/Background/start_choidon.png" Width="637" Height="438" Canvas.Left="107" Canvas.Top="19"></Image>
             <TextBlock Canvas.Left="242" FontSize="23" Foreground="Red" TextWrapping="Wrap" Text="Số Đĩa" Canvas.Top="292" Width="70"/>
             <TextBlock Canvas.Left="226" TextWrapping="Wrap" Text="CHỌN SỐ LƯỢNG ĐĨA" Canvas.Top="152" FontSize="40" FontWeight="Bold">
@@ -141,7 +158,9 @@
         </Canvas>
         <Image Source="/Assets/Icon/left-arrow-icon.png" Tap="imgBack" HorizontalAlignment="Left" Height="58" Margin="10,421,0,0" VerticalAlignment="Top" Width="64"/>
 
+        <Image Source="/Assets/Icon/reload.png" Tap="imgReload" HorizontalAlignment="Left" Height="46" Margin="744,429,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.51,0.446"/>
 
-   </Grid>
+
+    </Grid>
 
 </phone:PhoneApplicationPage>
